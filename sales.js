@@ -22,8 +22,9 @@ function prompt() {
     let passport = (inputArr.length === 6) ? inputArr[1] : '';
     let gloves = inputArr[inputArr.indexOf('Gloves') + 1];
     let mask = inputArr[inputArr.indexOf('Mask') + 1];
-    // minimizeSalePrice(purchaseCountry, passport, gloves, mask);
-    minimizeSalePrice('UK', 'A', 125, 70);
+    
+    minimizeSalePrice(purchaseCountry, passport, gloves, mask);
+
     rl.question("Do you to continue? Type Y or N : ", function (ans) {
       if (ans === 'Y' || ans === 'y') {
         prompt();
