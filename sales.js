@@ -79,13 +79,13 @@ function minimizeSalePrice(purchaseCountry, passport, gloves, mask) {
       else {
         UKGlovesCost = gloves * UKGlovesPrice;   //purchase country is same no need of trasnport cost
       }
-    } else {                             //Need to order from other country as inventory in sufficient
+    } else {                                     //Need to order from other country as inventory in sufficient
       remainingGloves = gloves - UKGlovesCount;
       UKGlovesCost = UKGlovesCount * UKGlovesPrice;
       UKGlovesCost += remainingGloves * GermanyGlovesPrice;
       UKGlovesCost += calTransportCost(remainingGloves, 'Germany', passport);
     }
-    if (gloves <= GermanyGlovesCount) {  // all Gloves available Germany 
+    if (gloves <= GermanyGlovesCount) {           // all Gloves available Germany 
       GermanyGlovesCost = gloves * GermanyGlovesPrice;
     } else {
       remainingGloves = gloves - GermanyGlovesCount;
@@ -95,9 +95,9 @@ function minimizeSalePrice(purchaseCountry, passport, gloves, mask) {
     }
     glovesCost = min(UKGlovesCost, GermanyGlovesCost);
 
-    if (mask <= UKMaskCount) {    // all mask available in UK inventory      
+    if (mask <= UKMaskCount) {                   // all mask available in UK inventory      
       if (purchaseCountry === 'Germany') {
-        if (mask / 10 !== 0) {                //total count is not multiple of 10
+        if (mask / 10 !== 0) {                    //total count is not multiple of 10
           let count = parseInt(mask / 10) * 10;
           UKMaskCost = count * UKMaskPrice;
           UKMaskCost += calTransportCost(count, 'UK', passport);
